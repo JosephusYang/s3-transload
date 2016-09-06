@@ -1,0 +1,30 @@
+{
+  "name": "s3-transload",
+  "version": "0.0.0",
+  "description": "GET file from link and upload to AWS S3",
+  "main": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JosephusYang/s3-transload.git"
+  },
+  "keywords": [
+    "transload",
+    "S3",
+    "download",
+    "upload",
+    "file"
+  ],
+  "author": "Josephus Yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JosephusYang/s3-transload/issues"
+  },
+  "homepage": "https://github.com/JosephusYang/s3-transload",
+  "dependencies": {
+    "aws-sdk": "~2.5.5",
+    "request": "~2.74.0"
+  }
+}
