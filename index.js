@@ -35,7 +35,7 @@ var uploadToS3RawResponse = function uploadFromStream(s3, cb) {
  */
 exports.urlToS3 = function(url, bucketName, itemKey, callback) {
   var s3 = new AWS.S3({params : {Bucket: bucketName, Key: itemKey}});
-  var req = request.get(getUrl);
+  var req = request.get(url);
   req.pause();
   req.on('response', function(resp) {
     if (resp.statusCode == 200) {
@@ -52,7 +52,7 @@ exports.urlToS3 = function(url, bucketName, itemKey, callback) {
  */
 exports.urlToS3WithRawResponse = function(url, bucketName, itemKey, callback) {
   var s3 = new AWS.S3({params : {Bucket: bucketName, Key: itemKey}});
-  var req = request.get(getUrl);
+  var req = request.get(url);
   req.pause();
   req.on('response', function(resp) {
     if (resp.statusCode == 200) {

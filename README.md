@@ -14,6 +14,11 @@ A module that pipe network file into AWS S3.
 var AWS         = require('aws-sdk'),
     s3Transload = require('s3-transload');
 
+// setup S3 credential 
+var credentials = new AWS.SharedIniFileCredentials({profile: 'your-profile'});
+AWS.config.credentials = credentials;
+
+//url to get the resource
 var getUrl = "http://path/to/the/resource";
 
 s3Transload.urlToS3(getUrl, 'your-bucket-name', 'your-item-key', function(error, data) {
@@ -21,6 +26,10 @@ s3Transload.urlToS3(getUrl, 'your-bucket-name', 'your-item-key', function(error,
 	console.log("The resource URL on S3 is:", data);
 });
 ```
+
+## Note
+
+[How To setup AWS credential](https://aws.amazon.com/sdk-for-node-js/)
 
 ## Under the hood
 
