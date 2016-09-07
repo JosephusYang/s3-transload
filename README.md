@@ -1,5 +1,7 @@
 ## s3-transload
 
+[![NPM](https://nodei.co/npm/s3-transload.png)](https://nodei.co/npm/s3-transload/)
+
 A module that pipe network file into AWS S3.
 
 ### What this module do?
