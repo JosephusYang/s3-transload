@@ -6,7 +6,7 @@ const stream = require('stream');
 var uploadToS3 = function uploadFromStream(s3, uploadParams, cb) {
   var pass = new stream.PassThrough();
 
-  var params = upuploadParams || {};
+  var params = uploadParams || {};
   params.Body = pass;
   s3.upload(params).
   // on('httpUploadProgress', function(evt) { console.log(evt); }).
@@ -22,7 +22,7 @@ var uploadToS3 = function uploadFromStream(s3, uploadParams, cb) {
 };
 var uploadToS3RawResponse = function uploadFromStream(s3, uploadParams, cb) {
   var pass = new stream.PassThrough();
-  var params = upuploadParams || {};
+  var params = uploadParams || {};
   params.Body = pass;
   s3.upload(params).
   // on('httpUploadProgress', function(evt) { console.log(evt); }).
