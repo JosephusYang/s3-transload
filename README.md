@@ -3,6 +3,7 @@
 [![NPM](https://nodei.co/npm/s3-transload.png)](https://nodei.co/npm/s3-transload/)
 
 A module that pipe network file into AWS S3.
+Recommended to use with node 6+, as it is using some ES6 feature. 
 
 ### What this module do?
 
