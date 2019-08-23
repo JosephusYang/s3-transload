@@ -1,10 +1,10 @@
 {
   "name": "s3-transload",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "GET file from link and upload to AWS S3",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",    
+    "test": "echo \"Error: no test specified\" && exit 1",
     "patch": "npm version patch && git push && git push --tags",
     "minor": "npm version minor && git push && git push --tags",
     "major": "npm version major && git push && git push --tags"
