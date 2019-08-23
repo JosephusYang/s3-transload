@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/JosephusYang/s3-transload",
   "dependencies": {
-    "aws-sdk": "~2.5.5",
+    "aws-sdk": "~2.516.0",
     "request": "~2.74.0"
   }
 }
