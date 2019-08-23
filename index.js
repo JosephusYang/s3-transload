@@ -6,7 +6,7 @@ const stream = require('stream');
 var uploadToS3 = function uploadFromStream(s3, uploadParams, cb) {
   var pass = new stream.PassThrough();
 
-  var params = upuploadParams || {};
+  var params = uploadParams || {};
   params.Body = pass;
   s3.upload(params).
   // on('httpUploadProgress', function(evt) { console.log(evt); }).
@@ -22,7 +22,7 @@ var uploadToS3 = function uploadFromStream(s3, uploadParams, cb) {
 };
 var uploadToS3RawResponse = function uploadFromStream(s3, uploadParams, cb) {
   var pass = new stream.PassThrough();
-  var params = upuploadParams || {};
+  var params = uploadParams || {};
   params.Body = pass;
   s3.upload(params).
   // on('httpUploadProgress', function(evt) { console.log(evt); }).
@@ -46,7 +46,7 @@ exports.urlToS3 = function(url, bucketName, itemKey, callback) {
   req.pause();
   req.on('response', function(resp) {
     if (resp.statusCode == 200) {
-      req.pipe(uploadToS3(s3, callback));
+      req.pipe(uploadToS3(s3, null, callback));
       req.resume();
     } else {
       callback(new Error('request item did not respond with HTTP 200'));
