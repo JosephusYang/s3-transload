@@ -2,36 +2,9 @@
 
 const AWS = require("aws-sdk");
 const request = require("request");
-const stream = require("stream");
 
-const uploadToS3 = function uploadFromStream(s3, uploadParams, cb) {
-  const pass = new stream.PassThrough();
+const { uploadToS3, uploadToS3RawResponse } = require("./uploadToS3.helper");
 
-  const params = uploadParams || {};
-  params.Body = pass;
-  s3.upload(params)
-    // on('httpUploadProgress', function(evt) { console.log(evt); }).
-    .send((err, data) => {
-      // console.log(err, data);
-      if (err) return cb(err, data);
-      if (data && data.Location) return cb(null, data.Location);
-      // data.Location is the uploaded location
-      return cb(new Error("data.Location not found!"), data);
-    });
-  return pass;
-};
-const uploadToS3RawResponse = function uploadFromStream(s3, uploadParams, cb) {
-  const pass = new stream.PassThrough();
-  const params = uploadParams || {};
-  params.Body = pass;
-  s3.upload(params)
-    // on('httpUploadProgress', function(evt) { console.log(evt); }).
-    .send((err, data) => {
-      // console.log(err, data);
-      cb(err, data);
-    });
-  return pass;
-};
 /* initiate a get request to the url and pipe the data to S3 bucket
  * will terminate when statusCode != 200
  * params:
