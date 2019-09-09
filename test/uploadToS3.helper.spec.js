@@ -10,7 +10,7 @@ chai.use(chaiSubset);
 const sinonChai = require("sinon-chai");
 chai.use(sinonChai);
 const _ = require("lodash");
-const uploadToS3 = require("../uploadToS3.helper");
+const uploadHelper = require("../uploadToS3.helper");
 const chance = require("chance").Chance("UPLOAD_TO_S3");
 
 describe("UploadToS3 Helper", function() {
@@ -84,28 +84,7 @@ describe("UploadToS3 Helper", function() {
   describe("Function: uploadToS3", function() {
     it("should return location on upload callback success", function() {
       const uploadToS3Promised = getTestedPromise(
-        uploadToS3.uploadToS3,
-        uploadStub,
-        sendSuccessStub
-      );
-      return expect(uploadToS3Promised).to.be.fulfilled.and.eventually.equal(
-        fakeLocation
-      );
-    });
-
-    it("should throw s3 error on upload fail", function() {
-      const uploadToS3Promised = getTestedPromise(
-        uploadToS3.uploadToS3,
-        uploadStub,
-        sendFailStub
-      );
-      return expect(uploadToS3Promised).to.be.rejectedWith(s3ErrorMsg);
-    });
-  });
-  describe("Function: uploadToS3RawResponse", function() {
-    it("should return location on upload callback success", function() {
-      const uploadToS3Promised = getTestedPromise(
-        uploadToS3.uploadToS3RawResponse,
+        uploadHelper.uploadToS3,
         uploadStub,
         sendSuccessStub
       );
@@ -116,7 +95,7 @@ describe("UploadToS3 Helper", function() {
 
     it("should throw s3 error on upload fail", function() {
       const uploadToS3Promised = getTestedPromise(
-        uploadToS3.uploadToS3RawResponse,
+        uploadHelper.uploadToS3,
         uploadStub,
         sendFailStub
       );
