@@ -1,6 +1,6 @@
 {
   "name": "s3-transload",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "GET file from link and upload to AWS S3",
   "main": "./index.js",
   "scripts": {
