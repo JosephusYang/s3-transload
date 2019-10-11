@@ -3,29 +3,35 @@
 [![NPM](https://nodei.co/npm/s3-transload.png)](https://nodei.co/npm/s3-transload/)
 
 A module that pipe network file into AWS S3.
+Recommended to use with node 6+, as it is using some ES6 feature.
 
 ### What this module do?
 
 * GET a file from the provide url and stream to S3
 
-
 ## Example
 
 ```js
+const AWS = require("aws-sdk");
+const s3Transload = require("s3-transload");
 
-var AWS         = require('aws-sdk'),
-    s3Transload = require('s3-transload');
-
-// setup S3 credential 
+// setup S3 credential
 var credentials = new AWS.SharedIniFileCredentials({profile: 'your-profile'});
 AWS.config.credentials = credentials;
 
-//url to get the resource
-var getUrl = "http://path/to/the/resource";
+const s3 = new AWS.S3({
+  apiVersion: "2006-03-01"
+});
 
-s3Transload.urlToS3(getUrl, 'your-bucket-name', 'your-item-key', function(error, data) {
-	if (error) return console.log(error);
-	console.log("The resource URL on S3 is:", data);
+const { urlToS3 } = s3Transload(s3);
+const util = require("util");
+const urlToS3Promise = util.promisify(urlToS3);
+
+urlToS3Promise("http://path/to/the/resource", {
+  Bucket: "your-bucket-name",
+  Key: "your-item-key"
+}).then(result => {
+  console.log(result);
 });
 ```
 

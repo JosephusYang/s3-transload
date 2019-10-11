@@ -4,7 +4,8 @@
   "description": "GET file from link and upload to AWS S3",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
+    "lint": "eslint .",
     "patch": "npm version patch && git push && git push --tags",
     "minor": "npm version minor && git push && git push --tags",
     "major": "npm version major && git push && git push --tags"
@@ -12,6 +13,9 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:JosephusYang/s3-transload.git"
+  },
+  "engines": {
+    "node": ">= 6.4.0"
   },
   "keywords": [
     "transload",
@@ -27,7 +31,24 @@
   },
   "homepage": "https://github.com/JosephusYang/s3-transload",
   "dependencies": {
-    "aws-sdk": "~2.5.5",
-    "request": "~2.74.0"
+    "request": "~2.88.0"
+  },
+  "peerDependencies": {
+    "aws-sdk": "^2.516.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-subset": "^1.6.0",
+    "chance": "^1.0.18",
+    "eslint": "^6.2.1",
+    "eslint-config-problems": "^3.0.1",
+    "eslint-plugin-mocha": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "lodash": "^4.17.15",
+    "mocha": "^6.2.1",
+    "prettier": "^1.18.2",
+    "sinon": "^7.4.1",
+    "sinon-chai": "^3.3.0"
   }
 }
