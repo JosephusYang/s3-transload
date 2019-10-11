@@ -3,6 +3,7 @@
 [![NPM](https://nodei.co/npm/s3-transload.png)](https://nodei.co/npm/s3-transload/)
 
 [![Build status](https://img.shields.io/travis/JosephusYang/s3-transload/master.svg?style=flat-square)](https://travis-ci.org/JosephusYang/s3-transload)
+[![dependencies Status](https://david-dm.org/JosephusYang/s3-transload/status.svg)](https://david-dm.org/JosephusYang/s3-transload)
 [![Known Vulnerabilities](https://snyk.io/test/npm/s3-transload/1.0.0/badge.svg)](https://snyk.io/test/npm/s3-transload/1.0.0)
 
 
