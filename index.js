@@ -2,7 +2,7 @@
 
 const request = require("request");
 
-const { uploadToS3 } = require("./uploadToS3.helper");
+const uploadToS3Helper = require("./uploadToS3.helper");
 
 /* initiate a get request to the url and pipe the data to S3 bucket
  * will terminate when statusCode != 200
@@ -40,7 +40,7 @@ module.exports = function(s3) {
             params.ContentEncoding = headers["content-encoding"];
           }
 
-          req.pipe(uploadToS3(s3, params, callback));
+          req.pipe(uploadToS3Helper.uploadToS3(s3, params, callback));
           req.resume();
         } else {
           return callback(
